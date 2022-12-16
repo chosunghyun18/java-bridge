@@ -3,6 +3,7 @@ package bridge.controller;
 import static org.assertj.core.util.Lists.newArrayList;
 
 import bridge.Bridge;
+import bridge.BridgeGame;
 import bridge.BridgeMaker;
 import bridge.BridgeNumberGenerator;
 import bridge.BridgeNumbersGenerator;
@@ -13,16 +14,17 @@ public class GameController {
     private BridgeMaker bridgeMaker;
     private InputController inputController;
     private InputView inputView;
-    private Bridge bridge;
+    private BridgeGame bridgeGame;
+
     public GameController() {
         this.inputController = new InputController();
+        this.bridgeGame = new BridgeGame();
+        this.inputView  = new InputView() ;
     }
 
     public void initGame() {
         int size = inputView.readBridgeSize();
-        BridgeNumberGenerator numberGenerator = new BridgeNumbersGenerator(size);
-        bridgeMaker =  new BridgeMaker(numberGenerator);
-        bridge = new Bridge(bridgeMaker.makeBridge(size));
+        bridgeGame.initBridge(size);
     }
 
     public void startGame() {

@@ -10,12 +10,5 @@ public class InputController {
     public InputController(){
         this.inputView = new InputView();
     }
-    public BridgeMaker initBridge(){
-        try {
-            int size = inputView.readBridgeSize();
-            return new BridgeMaker(new BridgeNumbersGenerator(size));
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자를 입력 해주세요");
-        }
-    }
+
 }
