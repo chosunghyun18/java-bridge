@@ -2,6 +2,7 @@ package bridge;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 /**
  * 다리의 길이를 입력 받아서 다리를 생성해주는 역할을 한다.
@@ -24,16 +25,18 @@ public class BridgeMaker {
         return answerBridge;
     }
     public void chcekNumbers(List<String> answerBridge,int size){
-        for (int i = 0; i < size; i++) {
-            answerBridge.add(getUpOrDown(bridgeNumberGenerator.generate()));
-        }
+        IntStream.range(0,size).forEach(
+                i-> {
+                    answerBridge.add(getUpOrDown(bridgeNumberGenerator.generate()));
+                }
+        );
     }
     public String getUpOrDown(int number) {
-        if (number == 1) {
-            return "U";
+        if (number == GameKey.UP.getValue()) {
+            return GameKey.UP.getMean();
         }
-        if (number == 0) {
-            return "D";
+        if (number == GameKey.Down.getValue()) {
+            return GameKey.Down.getMean();
         }
         return null;
     }
