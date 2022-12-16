@@ -11,12 +11,10 @@ public class BridgeGame {
     private BridgeMaker bridgeMaker;
     private List<String> userUpNumbers;
     private List<String> userDownNumbers;
-    private int bridgeSize;
 
     public BridgeGame() {
         this.userUpNumbers = new ArrayList<>(List.of());
         this.userDownNumbers = new ArrayList<>(List.of());
-        this.bridgeSize = 0;
     }
 
     /**
@@ -34,10 +32,10 @@ public class BridgeGame {
     }
 
     public void setUserAnswer(String moveCommand, String answer) {
-        if (moveCommand.equals("U")) {
+        if (moveCommand.equals(GameKey.UP.getMean())) {
             setUpCase(answer);
         }
-        if (moveCommand.equals("D")) {
+        if (moveCommand.equals(GameKey.Down.getMean())) {
             setDownCase(answer);
         }
     }
@@ -78,11 +76,7 @@ public class BridgeGame {
     }
 
     public int getBridgeSize() {
-        return bridgeSize;
-    }
-
-    public void setBridgeSize(int bridgeLength) {
-        this.bridgeSize = bridgeLength;
+        return bridge.getTargetBridge().size();
     }
 
     public List<String> getUserUpNumbers() {
@@ -94,7 +88,6 @@ public class BridgeGame {
     }
 
     public Bridge getBridgeInstance() {
-        setBridgeSize(bridge.getTargetBridge().size());
         return bridge;
     }
 
