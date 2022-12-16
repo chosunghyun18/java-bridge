@@ -11,4 +11,10 @@ public class Bridge {
     public List<String> getTargetBridge() {
         return targetBridge;
     }
+    public boolean getComparison(int index,String command) {
+        if(getTargetBridge().get(index).equals(command)) {
+            return true;
+        }
+        return false;
+    }
 }

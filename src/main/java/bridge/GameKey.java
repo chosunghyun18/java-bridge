@@ -1,8 +1,8 @@
 package bridge;
 
 public enum GameKey {
-    UP(0,"U"),
-    Down(1,"D");
+    UP(1,"U"),
+    Down(0,"D");
 
     private final int value;
     private final String mean;

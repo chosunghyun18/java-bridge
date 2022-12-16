@@ -6,8 +6,12 @@ public class Application {
 
     public static void main(String[] args) {
         GameController gameController = new GameController();
-        gameController.initGame();
-        gameController.startGame();
-        gameController.endGame();
+        try{
+            gameController.initGame();
+            gameController.startGame();
+            gameController.endGame();
+        }catch (IllegalArgumentException e){
+            System.out.println(e);
+        }
     }
 }
